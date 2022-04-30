@@ -2,15 +2,15 @@
 
 ## 1. Criar o componente principal
 
-### Criar o diretório .src/components/calculator
+### Criar o diretório `src/components`
 
 Dentro do diretório criado, criar os arquivos:
-- 'Calculator.jsx', onde vai ficar o componente principal, e 
-- 'Calculator.css', com o respectivo código css.
+- `Calculator.jsx`, onde vai ficar o componente principal, e 
+- `Calculator.css`, com o respectivo código css.
 
 ### Criando o componente
 
-Esse é o código básico para criação do componente, em 'Calculator.jsx':
+Esse é o código básico para criação do componente, em `Calculator.jsx`:
 
 ```javascript
 import React, { Component } from 'react'
@@ -69,7 +69,7 @@ Asterístico (*) é o seletor universal, pra utilizar a fonte em todos os compon
 
 ## 4. Criando o componente botão
 
-Criar o arquivo `Button.jsx` e `Button.css` em `src/components`
+Criar os arquivos `Button.jsx` e `Button.css` em `src/components`
 
 Em `Button.jsx`, colocar o código inicial para criação do componente e exibição do mesmo na tela:
 
@@ -112,8 +112,8 @@ No arquivo `Calculator.css`, na classe `.calculator`, adicionar as propriedades:
   grid-template-rows: 25% 15% 15% 15% 15% 15%;
 ```
 
-em grid-template-columns configuramos a largura das colunas
-em grid-template-rows configuramos a altura das linhas
+- em _grid-template-columns_ configuramos a largura das colunas
+- em _grid-template-rows_ configuramos a altura das linhas
 
 A minha calculadora terá 6 linhas. A primeira linha (25%) ficará com o display, e as outras linhas ficarão com os botões (15%).
 
@@ -269,13 +269,49 @@ export default class Calculator extends Component {
   addDigit() {}
 ...
 ```
-Nos botões, vamos adicionar o código para quando o botão for clicado, a função ser exectuada, por exemplo:
+Nos botões, vamos adicionar o código para quando o botão for clicado a função ser exectuada, por exemplo:
 
 ```javascript
-  <Button label="AC" triple click={this.ClearMemory}/>
+  <Button label="AC" click={this.ClearMemory} triple/>
 ```
 
-### Função apagar ou AC
+### Função AC
+
+Esta função vai apagar a memória da calculadora e voltá-la para o estado inicial.
+
+Para isso, podemos criar um estado inicial default para a calculadora.
+
+Esse código fica depois dos _imports_ no arquivo do componente Calculator (`Calculator.jsx`)
+
+```javascript
+const initialState = {
+  displayValue: '0',
+  clearDisplay: false,
+  operation: null,
+  values: [0, 0],
+  current: 0
+}
+```
+
+E dentro do componente em si, podemos adicionar o `state`:
+
+```javascript
+export default class Calculator extends Component {
+
+  state = { ...initialState }
+
+...
+```
+
+E atualizar o componente para exibir o resultado da função na tela:
+
+```javascript
+  render() {
+    return (
+      <div className="calculator">
+        <Display value={this.state.displayValue} />
+        ...
+```
 
 ### Função adicionar dígito
 
