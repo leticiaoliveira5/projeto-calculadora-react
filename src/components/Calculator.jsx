@@ -1,10 +1,7 @@
-import React, { Component } from 'react'
-import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers'
-
-import './Calculator.css'
-
-import Button from './Button'
-import Display from './Display'
+import React, { Component } from 'react';
+import './Calculator.css';
+import Button from './Button';
+import Display from './Display';
 
 const initialState = {
   displayValue: '0',
