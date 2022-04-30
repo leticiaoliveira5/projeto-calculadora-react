@@ -4,14 +4,14 @@
 
 * [node](https://github.com/nodesource/distributions)
 
-```
+```bash
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
 * yarn
 
-```
+```bash
 npm install --global yarn
 ```
 
@@ -26,6 +26,7 @@ npm i -g create-react-app
 ```bash
 create-react-app <app-name>
 ```
+
 ## Rodando o app
 
 ```bash

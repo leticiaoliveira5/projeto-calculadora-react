@@ -5,7 +5,9 @@
 ### Criar o diretório `src/components`
 
 Dentro do diretório criado, criar os arquivos:
-- `Calculator.jsx`, onde vai ficar o componente principal, e 
+
+- `Calculator.jsx`, onde vai ficar o componente principal, e
+
 - `Calculator.css`, com o respectivo código css.
 
 ### Criando o componente
@@ -35,7 +37,7 @@ Em `src/index.js` importar o componente:
 import Calculator from './components/Calculator';
 ```
 
-Em `src/index.js`, substituir o <App /> padrão de fábrica por <Calculator />:
+Em `src/index.js`, substituir o `<App />` padrão de fábrica por `<Calculator />`:
 
 ```diff
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -80,6 +82,7 @@ import './Button.css'
 export default props =>
   <button className='button'>{props.label}</button>
 ```
+
 O componente botão vai receber informações futuramente (props).
 
 Agora no arquivo `Calculator.jsx` é preciso importar o componente:
@@ -113,6 +116,7 @@ No arquivo `Calculator.css`, na classe `.calculator`, adicionar as propriedades:
 ```
 
 - em _grid-template-columns_ configuramos a largura das colunas
+
 - em _grid-template-rows_ configuramos a altura das linhas
 
 A minha calculadora terá 6 linhas. A primeira linha (25%) ficará com o display, e as outras linhas ficarão com os botões (15%).
@@ -130,6 +134,7 @@ import './Display.css'
 export default props =>
   <button className='display'>{props.value}</button>
 ```
+
 O componente display vai receber informações futuramente (props).
 
 Agora no arquivo `Calculator.jsx` é preciso importar o componente:
