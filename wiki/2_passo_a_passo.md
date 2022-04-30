@@ -208,15 +208,19 @@ Em `Button.css`, adicionar, por exemplo:
 Em `Button.jsx` podemos escrever um código javascript para manipular a escrita da classe dentre outras formas:
 
 ```javascript
-export default props =>
-  <button className={`
-    button
-    ${props.operation ? 'operation' : ''}
-    ${props.double ? 'double' : ''}
-    ${props.double ? 'triple' : ''}
-  `}>
-    {props.label}
-  </button>
+export default props => {
+  let classes = 'button '
+  classes += props.operation ? 'operation' : ''
+  classes += props.double ? 'double' : ''
+  classes += props.triple ? 'triple' : ''
+
+  return (
+    <button 
+      className={classes}>
+      {props.label}
+    </button>
+  )
+}
 ```
 
 E atualizar em `Calculator.jsx` as propriedades dos componentes:
@@ -252,6 +256,8 @@ export default class Calculator extends Component {
 
 ## 9. Adicionando funções aos botões
 
+No componente Calculator, adicionar funções que serão chamadas ao clicar os botões
+
 ```javascript
 export default class Calculator extends Component {
 
@@ -269,6 +275,17 @@ export default class Calculator extends Component {
   addDigit() {}
 ...
 ```
+
+No componente Button, temos que preencher o onClick com a propriedade click que será enviada do componenete:
+
+```javascript
+    <button 
+      onClick={e => props.click(props.label)}
+      className={classes}>
+      {props.label}
+    </button>
+```
+
 Nos botões, vamos adicionar o código para quando o botão for clicado a função ser exectuada, por exemplo:
 
 ```javascript
