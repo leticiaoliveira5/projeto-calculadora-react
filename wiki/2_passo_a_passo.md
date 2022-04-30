@@ -1,4 +1,4 @@
-# Calculadors: passo a passo
+# Calculadora: passo a passo
 
 ## 1. Criar o componente principal
 
