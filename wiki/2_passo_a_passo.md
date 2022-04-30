@@ -320,6 +320,14 @@ export default class Calculator extends Component {
 ...
 ```
 
+Então preenchemos o método para aplicar na calculadora o seu estado inicial:
+
+```javascript
+  clearMemory() {
+    this.setState({ ...initialState })
+  }
+```
+
 E atualizar o componente para exibir o resultado da função na tela:
 
 ```javascript
@@ -331,5 +339,13 @@ E atualizar o componente para exibir o resultado da função na tela:
 ```
 
 ### Função adicionar dígito
+
+Essa função vai estabelecer a lógica da digitação dos algarismos.
+
+Nos botões de números, adicionamos a função desta forma:
+
+```javascript
+  <Button label="7" click={this.addDigit} />
+```
 
 ### Função operação
